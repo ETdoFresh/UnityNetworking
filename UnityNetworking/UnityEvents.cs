@@ -9,4 +9,5 @@ namespace UnityNetworking
     [Serializable] public class UnityEventObject : UnityEvent<Object> { }
     [Serializable] public class UnityEventObjectSocket : UnityEvent<Object, Socket> { }
     [Serializable] public class UnityEventObjectMessageSocket : UnityEvent<Object, Message<Socket>> { }
+    [Serializable] public class UnityEventObjectMessage : UnityEvent<Object, Message> { }
 }

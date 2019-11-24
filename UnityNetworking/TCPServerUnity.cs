@@ -71,5 +71,9 @@ namespace UnityNetworking
         {
             mainThread.Enqueue(new Action(() => OnClose.Invoke(this, e)));
         }
+
+        public void Send(Socket socket, string message) => server.Send(socket, message);
+
+        public void Send(Socket socket, byte[] bytes) => server.Send(socket, bytes);
     }
 }
