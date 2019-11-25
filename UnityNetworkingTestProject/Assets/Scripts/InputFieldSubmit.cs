@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,6 +9,10 @@ public class InputFieldSubmit : MonoBehaviour
 
     public UnityEventString onSubmit = new UnityEventString();
 
+    private void OnEnable()
+    {
+        if (inputField) inputField.ActivateInputField();
+    }
     private void Update()
     {
         if (inputField && inputField.isActiveAndEnabled)
