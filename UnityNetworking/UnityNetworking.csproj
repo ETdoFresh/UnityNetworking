@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebSocketClientUnity.cs" />
     <Compile Include="TCPClientUnity.cs" />
     <Compile Include="TCPServerUnity.cs" />
     <Compile Include="UnityEvents.cs" />

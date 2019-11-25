@@ -120,173 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &194538984
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 194538986}
-  - component: {fileID: 194538985}
-  - component: {fileID: 194538988}
-  m_Layer: 0
-  m_Name: TCPServer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &194538985
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194538984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 583708532, guid: ccdd06262fbf4ef468e9300d46334475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  server:
-    hostNameOrAddress: 
-    port: 0
-  host: localhost
-  port: 11000
-  OnServerOpen:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityNetworking.UnityEventObject, UnityNetworking, Version=0.1.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnServerClose:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityNetworking.UnityEventObject, UnityNetworking, Version=0.1.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnOpen:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityNetworking.UnityEventObjectSocket, UnityNetworking, Version=0.1.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnMessage:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityNetworking.UnityEventObjectMessageSocket, UnityNetworking, Version=0.1.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnClose:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityNetworking.UnityEventObjectSocket, UnityNetworking, Version=0.1.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!4 &194538986
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194538984}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &194538988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194538984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6598abce8b3ad7742b14eccdf9b9584b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textMesh: {fileID: 1107456903}
-  server: {fileID: 194538985}
---- !u!1 &294731082
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 294731084}
-  - component: {fileID: 294731083}
-  - component: {fileID: 294731085}
-  m_Layer: 0
-  m_Name: TCPClient
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &294731083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 294731082}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 604096266, guid: ccdd06262fbf4ef468e9300d46334475, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  client:
-    hostNameOrAddress: 
-    port: 0
-  host: localhost
-  port: 11000
-  OnOpen:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityNetworking.UnityEventObject, UnityNetworking, Version=0.1.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnMessage:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityNetworking.UnityEventObjectMessage, UnityNetworking, Version=0.1.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnClose:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityNetworking.UnityEventObject, UnityNetworking, Version=0.1.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!4 &294731084
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 294731082}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &294731085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 294731082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf67686fc6dd75f44950b441f39da4fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textMesh: {fileID: 1107456903}
-  server: {fileID: 194538985}
-  client: {fileID: 294731083}
 --- !u!1 &627125633
 GameObject:
   m_ObjectHideFlags: 0
@@ -796,7 +629,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: '<b>TCPServer and TCPClient Example</b>
+  m_text: '<b>WebSocket Client Example (wss://echo.websocket.org)</b>
+
 
 '
   m_isRightToLeft: 0
@@ -867,12 +701,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1107456903}
-    characterCount: 32
+    characterCount: 53
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 4
+    spaceCount: 5
+    wordCount: 7
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1429,6 +1263,80 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1856580343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1856580344}
+  - component: {fileID: 1856580346}
+  - component: {fileID: 1856580345}
+  m_Layer: 0
+  m_Name: WebSocketClient
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1856580344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856580343}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1856580345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856580343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc7e86efaadc5f543ba72225c07e6468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMesh: {fileID: 1107456903}
+  client: {fileID: 1856580346}
+--- !u!114 &1856580346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856580343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -62663870, guid: ccdd06262fbf4ef468e9300d46334475, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uri: wss://echo.websocket.org
+  OnOpen:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityNetworking.UnityEventObject, UnityNetworking, Version=0.1.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnMessage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityNetworking.UnityEventObjectMessage, UnityNetworking, Version=0.1.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnClose:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityNetworking.UnityEventObject, UnityNetworking, Version=0.1.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2079169405
 GameObject:
   m_ObjectHideFlags: 0
@@ -1634,8 +1542,19 @@ MonoBehaviour:
   onSubmit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 294731083}
+      - m_Target: {fileID: 1856580346}
         m_MethodName: Send
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1856580345}
+        m_MethodName: OnSend
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
