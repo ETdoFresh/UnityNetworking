@@ -1,0 +1,22 @@
+name: Unity Build and Upload to Dropbox
+on:
+  push:
+    branches:
+    - master
+jobs:
+  webgl:
+    name: Unity WebGL Build and Upload to GitHub Pages
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: actions/checkout@v1
+    - uses: ETdoFresh/Actions/UnityBuild@latest
+      with:
+        UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
+        UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        BUILD_NAME: UnityNetworkingTestProject
+        BUILD_TARGET: WebGL
+    - uses: ETdoFresh/Actions/UploadToGithubPages@latest
+      with:
+        GITHUB_REPOSITORY: ETdoFresh/UnityNetworking
+        GITHUB_USERNAME: ${{ secrets.UNITY_USERNAME }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_GEN_TOKEN }}
