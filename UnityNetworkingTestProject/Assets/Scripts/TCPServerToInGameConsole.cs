@@ -30,26 +30,26 @@ public class TCPServerToInGameConsole : MonoBehaviour
 
     private void OnServerOpen(Object arg0)
     {
-        textMesh.text += "Server Open\n";
+        textMesh.text += "Server: Listening...\n";
     }
 
     private void OnServerClose(Object arg0)
     {
-        textMesh.text += "Server Closed\n";
+        textMesh.text += "Server: Stop Listening...\n";
     }
 
     private void OnOpen(Object arg0, Socket arg1)
     {
         var ip = ((IPEndPoint)arg1.RemoteEndPoint).Address;
         var port = ((IPEndPoint)arg1.RemoteEndPoint).Port;
-        textMesh.text += $"Client {ip}:{port} connected!\n";
+        textMesh.text += $"Server: Client {ip}:{port} connected!\n";
     }
 
     private void OnMessage(Object arg0, Message<Socket> arg1)
     {
         var ip = ((IPEndPoint)arg1.client.RemoteEndPoint).Address;
         var port = ((IPEndPoint)arg1.client.RemoteEndPoint).Port;
-        textMesh.text += $"Received from Client {ip}:{port}: {arg1.data}\n";
+        textMesh.text += $"Server: Received from Client {ip}:{port}: {arg1.data}\n";
     }
 
     private void OnClose(Object arg0, Socket arg1)
@@ -57,6 +57,6 @@ public class TCPServerToInGameConsole : MonoBehaviour
         var ip = ((IPEndPoint)arg1?.RemoteEndPoint)?.Address;
         var port = arg1.RemoteEndPoint != null ? ((IPEndPoint)arg1.RemoteEndPoint).Port : -1;
         var clientInfo = ip != null ? $" {ip}:{port}" : "";
-        textMesh.text += $"Client{clientInfo} disconnected!\n";
+        textMesh.text += $"Server: Client{clientInfo} disconnected!\n";
     }
 }

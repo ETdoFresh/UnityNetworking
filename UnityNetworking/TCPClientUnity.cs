@@ -17,12 +17,17 @@ namespace UnityNetworking
         public UnityEventObjectMessage OnMessage = new UnityEventObjectMessage();
         public UnityEventObject OnClose = new UnityEventObject();
 
-        private void OnEnable()
+        private void Awake()
         {
             client = new TCPClient(host, port);
+        }
+
+        private void OnEnable()
+        {
             client.OnOpen += InvokeOnOpen;
             client.OnMessage += InvokeOnMessage;
             client.OnClose += InvokeOnClose;
+            client.Open();
         }
 
         private void OnDisable()
@@ -31,6 +36,10 @@ namespace UnityNetworking
             client.OnOpen -= InvokeOnOpen;
             client.OnMessage -= InvokeOnMessage;
             client.OnClose -= InvokeOnClose;
+        }
+
+        private void OnDestroy()
+        {
             client = null;
         }
 

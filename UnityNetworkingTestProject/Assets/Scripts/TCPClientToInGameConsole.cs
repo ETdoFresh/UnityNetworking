@@ -12,13 +12,13 @@ public class TCPClientToInGameConsole : MonoBehaviour
     void Awake()
     {
         server.OnServerOpen.AddListener(OnServerOpen);
-        server.OnServerOpen.AddListener(OnServerClose);
+        server.OnServerClose.AddListener(OnServerClose);
     }
 
     private void OnDestroy()
     {
         server.OnServerOpen.RemoveListener(OnServerOpen);
-        server.OnServerOpen.RemoveListener(OnServerClose);
+        server.OnServerClose.RemoveListener(OnServerClose);
     }
 
     private void OnServerOpen(Object arg0)
@@ -39,16 +39,16 @@ public class TCPClientToInGameConsole : MonoBehaviour
 
     private void OnOpen(Object arg0)
     {
-        textMesh.text += $"Client connected!\n";
+        textMesh.text += $"Client: Connected to Server!\n";
     }
 
     private void OnMessage(Object arg0, Message arg1)
     {
-        textMesh.text += $"Client Received: {arg1.data}\n";
+        textMesh.text += $"Client: Received from Server: {arg1.data}\n";
     }
 
     private void OnClose(Object arg0)
     {
-        textMesh.text += $"Client disconnected!\n";
+        textMesh.text += $"Client: Disconnected!\n";
     }
 }

@@ -20,14 +20,19 @@ namespace UnityNetworking
         public UnityEventObjectMessageSocket OnMessage = new UnityEventObjectMessageSocket();
         public UnityEventObjectSocket OnClose = new UnityEventObjectSocket();
 
-        private void OnEnable()
+        private void Awake()
         {
             server = new TCPServer(host, port);
+        }
+
+        private void OnEnable()
+        {
             server.OnServerOpen += InvokeOnServerOpen;
             server.OnServerClose += InvokeOnServerClose;
             server.OnOpen += InvokeOnOpen;
             server.OnMessage += InvokeOnMessage;
             server.OnClose += InvokeOnClose;
+            server.Open();
         }
 
         private void OnDisable()
@@ -38,6 +43,10 @@ namespace UnityNetworking
             server.OnOpen -= InvokeOnOpen;
             server.OnMessage -= InvokeOnMessage;
             server.OnClose -= InvokeOnClose;
+        }
+
+        private void OnDestroy()
+        {
             server = null;
         }
 
