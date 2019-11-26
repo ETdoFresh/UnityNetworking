@@ -23,6 +23,9 @@ public class InputFieldSubmit : MonoBehaviour
     public void Submit()
     {
         if (!inputField) return;
+        
+        inputField.text = inputField.text.Trim();
+        if (string.IsNullOrEmpty(inputField.text)) return;
 
         onSubmit.Invoke(inputField.text);
         inputField.text = "";
