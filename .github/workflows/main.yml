@@ -1,4 +1,4 @@
-name: Unity Build and Upload to Dropbox
+name: Unity Build and Upload to GitHub Pages
 on:
   push:
     branches:
@@ -13,6 +13,7 @@ jobs:
       with:
         UNITY_USERNAME: ${{ secrets.UNITY_USERNAME }}
         UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        UNITY_PROJECT_PATH: UnityNetworkingTestProject
         BUILD_NAME: UnityNetworkingTestProject
         BUILD_TARGET: WebGL
     - uses: ETdoFresh/Actions/UploadToGithubPages@latest
