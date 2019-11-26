@@ -10,11 +10,67 @@ Included in this repository are the following subtree repositories:
 
 *\* I use subtrees so that you don't have to worry about pulling and building from multiple repositories*
 
+## Try it yourself!
+Here is a WebSocketClient example running in WebGL:
+
+https://etdofresh.github.io/UnityNetworking/
+
+## Example Code
+Create a new scene with a TextMeshPro Textbox. Also add the WebScoketClientUnity MonoBehaviour (provided in dll) and the following script to create the above example.
+```
+using CSharpNetworking;
+using TMPro;
+using UnityEngine;
+using UnityNetworking;
+
+public class WebSocketClientToInGameConsole : MonoBehaviour
+{
+    public TextMeshProUGUI textMesh;
+    public WebSocketClientUnity client;
+
+    void Awake()
+    {
+        client.OnOpen.AddListener(OnOpen);
+        client.OnMessage.AddListener(OnMessage);
+        client.OnClose.AddListener(OnClose);
+    }
+
+    private void OnDestroy()
+    {
+        client.OnOpen.RemoveListener(OnOpen);
+        client.OnMessage.RemoveListener(OnMessage);
+        client.OnClose.RemoveListener(OnClose);
+    }
+
+    private void OnOpen(Object arg0)
+    {
+        textMesh.text += $"Client: Connected to Server!\n";
+    }
+
+    private void OnMessage(Object arg0, Message arg1)
+    {
+        textMesh.text += $"Client: Received from Server: {arg1.data}\n";
+    }
+
+    private void OnClose(Object arg0)
+    {
+        textMesh.text += $"Client: Disconnected!\n";
+    }
+
+    public void OnSend(string message)
+    {
+        textMesh.text += $"<#808080>Client: Sent to Server: {message}</color>\n";
+    }
+}
+```
+
 ## Usage
-Include the following two files in your Unity Project:
+Include the following four files in your Unity Project:
 
 - **`UnityNetworking.dll`** Unity Networking MonoBehaviours
 - **`CSharpNetworking.dll`** Network Communication Libraries using C#
+- **`WebGLWebSocket.jslib`** WebGL Websocket Library
+- **`WebGLWebSocketPrecompiler.cs`** Workaround for UnityNetworking.dll not being able to access precompiler tags (since it's already compiled)
 
 This will allow you to use MonoBehaviours
 
