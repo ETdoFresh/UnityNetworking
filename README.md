@@ -58,7 +58,7 @@ public class WebSocketClientToInGameConsole : MonoBehaviour
 ```
 
 ## Usage
-Include the following four files in your Unity Project:
+Include the following four files in your Unity Project found as a *.unitypackage* in [Releases](https://github.com/ETdoFresh/UnityNetworking/releases):
 
 - **`UnityNetworking.dll`** Unity Networking MonoBehaviours
 - **`CSharpNetworking.dll`** Network Communication Libraries using C#
