@@ -104,5 +104,3 @@ to create communication between servers and clients.
 Included in this repository are the following subtree repositories:
 
 - **CSharpNetworking** https://github.com/ETdoFresh/CSharpNetworking
-
-*\* I use subtrees so that you don't have to worry about pulling and building from multiple repositories*
