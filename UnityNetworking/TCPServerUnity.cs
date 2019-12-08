@@ -27,6 +27,8 @@ namespace UnityNetworking
 
         private void OnEnable()
         {
+            server.hostNameOrAddress = host;
+            server.port = port;
             server.OnServerOpen += InvokeOnServerOpen;
             server.OnServerClose += InvokeOnServerClose;
             server.OnOpen += InvokeOnOpen;
@@ -84,5 +86,7 @@ namespace UnityNetworking
         public void Send(Socket socket, string message) => server.Send(socket, message);
 
         public void Send(Socket socket, byte[] bytes) => server.Send(socket, bytes);
+
+        public void Disconnect(Socket socket) => server.Disconnect(socket);
     }
 }
