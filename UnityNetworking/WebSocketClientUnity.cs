@@ -26,6 +26,7 @@ namespace UnityNetworking
         public UnityEventObject OnOpen = new UnityEventObject();
         public UnityEventObjectMessage OnMessage = new UnityEventObjectMessage();
         public UnityEventObject OnClose = new UnityEventObject();
+        public UnityEventObjectException OnError = new UnityEventObjectException();
 
         private void Awake()
         {
@@ -40,6 +41,7 @@ namespace UnityNetworking
                 client.OnOpen += InvokeOnOpen;
                 client.OnMessage += InvokeOnMessage;
                 client.OnClose += InvokeOnClose;
+                client.OnError += InvokeOnError;
                 client.Open();
             }
             else
@@ -57,6 +59,7 @@ namespace UnityNetworking
                 client.OnOpen -= InvokeOnOpen;
                 client.OnMessage -= InvokeOnMessage;
                 client.OnClose -= InvokeOnClose;
+                client.OnError -= InvokeOnError;
             }
             else
             {
@@ -123,6 +126,11 @@ namespace UnityNetworking
         private void InvokeOnClose(object sender, EventArgs e)
         {
             mainThread.Enqueue(new Action(() => OnClose.Invoke(this)));
+        }
+
+        private void InvokeOnError(object sender, Exception e)
+        {
+            mainThread.Enqueue(new Action(() => OnError.Invoke(this, e)));
         }
 
         public void Send(string message)

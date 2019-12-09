@@ -19,6 +19,7 @@ namespace UnityNetworking
         public UnityEventObjectSocket OnOpen = new UnityEventObjectSocket();
         public UnityEventObjectMessageSocket OnMessage = new UnityEventObjectMessageSocket();
         public UnityEventObjectSocket OnClose = new UnityEventObjectSocket();
+        public UnityEventObjectException OnError = new UnityEventObjectException();
 
         private void Awake()
         {
@@ -34,6 +35,7 @@ namespace UnityNetworking
             server.OnOpen += InvokeOnOpen;
             server.OnMessage += InvokeOnMessage;
             server.OnClose += InvokeOnClose;
+            server.OnError += InvokeOnError;
             server.Open();
         }
 
@@ -45,6 +47,7 @@ namespace UnityNetworking
             server.OnOpen -= InvokeOnOpen;
             server.OnMessage -= InvokeOnMessage;
             server.OnClose -= InvokeOnClose;
+            server.OnError -= InvokeOnError;
         }
 
         private void OnDestroy()
@@ -81,6 +84,11 @@ namespace UnityNetworking
         private void InvokeOnClose(object sender, Socket e)
         {
             mainThread.Enqueue(new Action(() => OnClose.Invoke(this, e)));
+        }
+
+        private void InvokeOnError(object sender, Exception e)
+        {
+            mainThread.Enqueue(new Action(() => OnError.Invoke(this, e)));
         }
 
         public void Send(Socket socket, string message) => server.Send(socket, message);
