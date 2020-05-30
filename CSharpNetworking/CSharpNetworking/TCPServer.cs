@@ -12,7 +12,7 @@ namespace CSharpNetworking
     {
         public string hostNameOrAddress;
         public int port;
-        public Socket socket;
+        [NonSerialized] public Socket socket;
 
         public event EventHandler OnServerOpen = delegate { };
         public event EventHandler<Socket> OnOpen = delegate { };
@@ -32,17 +32,18 @@ namespace CSharpNetworking
         public void Open()
         {
             IPEndPoint localEndPoint = null;
-            if (hostNameOrAddress != "")
+            
+            if (string.IsNullOrEmpty(hostNameOrAddress) || hostNameOrAddress == "0.0.0.0" || hostNameOrAddress == "::/0")
+            {
+                Console.WriteLine($"TCPServer: Starting on IPAddress.Any:{port}...");
+                localEndPoint = new IPEndPoint(IPAddress.Any, port);
+            }
+            else
             {
                 Console.WriteLine($"TCPServer: Starting on {hostNameOrAddress}:{port}...");
                 var ipHostInfo = Dns.GetHostEntry(hostNameOrAddress);
                 var ipAddress = ipHostInfo.AddressList.Where(ip => ip.AddressFamily == AddressFamily.InterNetwork).FirstOrDefault();
                 localEndPoint = new IPEndPoint(ipAddress, port);
-            }
-            else
-            {
-                Console.WriteLine($"TCPServer: Starting on IPAddress.Any:{port}...");
-                localEndPoint = new IPEndPoint(IPAddress.Any, port);
             }
             socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socket.Bind(localEndPoint);
@@ -116,11 +117,11 @@ namespace CSharpNetworking
 
         private void ClientDisconnect(Socket socket)
         {
-            var remoteEndPoint = (IPEndPoint)socket.RemoteEndPoint;
-            var ip = remoteEndPoint.Address;
-            var port = remoteEndPoint.Port;
             try
             {
+                var remoteEndPoint = (IPEndPoint)socket.RemoteEndPoint;
+                var ip = remoteEndPoint.Address;
+                var port = remoteEndPoint.Port;
                 if (socket.Connected) socket.Disconnect(false);
                 OnClose.Invoke(this, socket);
                 Console.WriteLine($"TCPServer: Client {ip}:{port} disconnected normally.");
